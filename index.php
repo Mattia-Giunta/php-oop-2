@@ -3,6 +3,23 @@
 include_once __DIR__ ."/model/classi.php";
 
 
+// Creazione dei tipi di prodotto
+$foodType = new ProductType("Cibo");
+$toyType = new ProductType("Gioco");
+$bedType = new ProductType("Cuccia");
+
+// Creazione dei prodotti e delle categorie
+$dogFood = new Product("Croccantini per Cani", 10.99, "./img/food-dog.jpg", $dogCategory = new Category("Cani", "<i class='fa-solid fa-dog'></i>"));
+$catToy = new Product("Giochino per Gatti", 5.99, "./img/cat-toy.jpg", $catCategory = new Category("Gatti", "<i class='fa-solid fa-cat'></i>"));
+$catProduct = new Product("Cuccia per Gatti", 15.99, "./img/cat-home.jpg", $catCategory = new Category("Gatti", "<i class='fa-solid fa-cat'></i>"));
+
+$arrayProdotti = [
+    $dogFood,
+    $catToy,
+    $catProduct,
+]
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +28,8 @@ include_once __DIR__ ."/model/classi.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <title>OOP 2</title>
@@ -25,18 +44,37 @@ include_once __DIR__ ."/model/classi.php";
 
             <h1 class="my-5 text-center">Pet Shop </h1>
 
-            <div class="card" style="width: 18rem;">
+            <div class="d-flex justify-content-around ">
 
-                <img src="..." class="card-img-top" alt="...">
+                <?php foreach( $arrayProdotti as $element ) : ?>
 
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card'content.</p>
-                    <a href="#" class="btn btn-primary">Buy</a>
-                </div>
+                    <div class="card " style="width: 18rem;">
+
+                        <img src="<?= $element->image?>" class="card-img-top h-50" alt="<?= $element->title?>">
+
+                        <div class="card-body">
+                            
+                            <h5 class="card-title">
+                                <?= $element->title?>
+                            </h5>
+                            <h3>
+                                <?= $element->category->animal?>
+                                <?= $element->category->icon?>
+                            </h3>
+                            <p class="card-text">
+                                <?= $element->price?>€
+                            </p>
+                            <a href="#" class="btn btn-primary">Buy</a>
+
+                        </div>
+
+                    </div>
+
+                <?php endforeach; ?>  
 
             </div>
 
+            
         </div>
     
         
