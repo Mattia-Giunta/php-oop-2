@@ -50,21 +50,21 @@ $arrayProdotti = [
 
                     <div class="card " style="width: 20rem;">
 
-                        <img src="<?= $element->image?>" class="card-img-top h-50" alt="<?= $element->title?>">
+                        <img src="<?= $element->getImage()?>" class="card-img-top h-50" alt="<?= $element->getTitle()?>">
 
                         <div class="card-body">
                             
                             <h3>
-                                <?= $element->category->animal?>
-                                <?= $element->category->icon?>
+                                <?= $element->getCategory()->getAnimal()?>
+                                <?= $element->getCategory()->getIcon()?>
                             </h3>
 
                             <h5 class="card-title">
-                                <?= $element->title?>
+                                <?= $element->getTitle()?>
                             </h5>
 
                             <p>
-                                Type: <?= $element->type->name ?>
+                                Type: <?= $element->getType()->getName() ?>
                             </p>
                             
                         </div>
@@ -72,7 +72,7 @@ $arrayProdotti = [
                         <div class="card-footer">
                             
                             <p class="card-text">
-                                <?= $element->price?>€
+                                <?= $element->getPrice()?>€
                             </p>
                             <a href="#" class="btn btn-primary">Buy</a>
                         </div>    
