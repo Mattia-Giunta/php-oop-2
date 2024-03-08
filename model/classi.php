@@ -24,12 +24,14 @@ class Product {
     public $price;
     public $image;
     public $category;
+    public $type;
 
-    public function __construct($_title, $_price, $_image, Category $_category) {
+    public function __construct($_title, $_price, $_image, Category $_category, ProductType $_type) {
         $this->title = $_title;
         $this->price = $_price;
         $this->image = $_image;
         $this->category = $_category;
+        $this->type = $_type;
     }
 }
 

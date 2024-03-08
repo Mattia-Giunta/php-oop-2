@@ -9,9 +9,9 @@ $toyType = new ProductType("Gioco");
 $bedType = new ProductType("Cuccia");
 
 // Creazione dei prodotti e delle categorie
-$dogFood = new Product("Croccantini per Cani", 10.99, "./img/food-dog.jpg", $dogCategory = new Category("Cani", "<i class='fa-solid fa-dog'></i>"));
-$catToy = new Product("Giochino per Gatti", 5.99, "./img/cat-toy.jpg", $catCategory = new Category("Gatti", "<i class='fa-solid fa-cat'></i>"));
-$catProduct = new Product("Cuccia per Gatti", 15.99, "./img/cat-home.jpg", $catCategory = new Category("Gatti", "<i class='fa-solid fa-cat'></i>"));
+$dogFood = new Product("Croccantini per Cani", 10.99, "./img/food-dog.jpg", $dogCategory = new Category("Cani", "<i class='fa-solid fa-dog'></i>"), $foodType);
+$catToy = new Product("Giochino per Gatti", 5.99, "./img/cat-toy.jpg", $catCategory = new Category("Gatti", "<i class='fa-solid fa-cat'></i>"), $toyType);
+$catProduct = new Product("Cuccia per Gatti", 15.99, "./img/cat-home.jpg", $catCategory = new Category("Gatti", "<i class='fa-solid fa-cat'></i>"), $bedType);
 
 $arrayProdotti = [
     $dogFood,
@@ -48,25 +48,34 @@ $arrayProdotti = [
 
                 <?php foreach( $arrayProdotti as $element ) : ?>
 
-                    <div class="card " style="width: 18rem;">
+                    <div class="card " style="width: 20rem;">
 
                         <img src="<?= $element->image?>" class="card-img-top h-50" alt="<?= $element->title?>">
 
                         <div class="card-body">
                             
-                            <h5 class="card-title">
-                                <?= $element->title?>
-                            </h5>
                             <h3>
                                 <?= $element->category->animal?>
                                 <?= $element->category->icon?>
                             </h3>
+
+                            <h5 class="card-title">
+                                <?= $element->title?>
+                            </h5>
+
+                            <p>
+                                Type: <?= $element->type->name ?>
+                            </p>
+                            
+                        </div>
+                       
+                        <div class="card-footer">
+                            
                             <p class="card-text">
                                 <?= $element->price?>€
                             </p>
                             <a href="#" class="btn btn-primary">Buy</a>
-
-                        </div>
+                        </div>    
 
                     </div>
 
