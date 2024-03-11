@@ -1,5 +1,7 @@
 <?php 
 
+require_once __DIR__ . "/trait.php";
+
 class ProductType {
     protected $name;
 
@@ -31,6 +33,9 @@ class Category {
 }
 
 class Product {
+
+    use StockStatusTrait;
+
     protected $title;
     protected $price;
     protected $image;
@@ -43,6 +48,7 @@ class Product {
         $this->image = $_image;
         $this->category = $_category;
         $this->type = $_type;
+        $this->setStockQuantity();
     }
 
     public function getTitle() {

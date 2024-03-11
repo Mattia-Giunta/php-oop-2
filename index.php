@@ -8,6 +8,9 @@ $foodType = new ProductType("Cibo");
 $toyType = new ProductType("Gioco");
 $bedType = new ProductType("Cuccia");
 
+
+
+
 // Creazione dei prodotti e delle categorie
 $dogFood = new Product("Croccantini per Cani", 10.99, "./img/food-dog.jpg", $dogCategory = new Category("Cani", "<i class='fa-solid fa-dog'></i>"), $foodType);
 $catToy = new Product("Giochino per Gatti", 5.99, "./img/cat-toy.jpg", $catCategory = new Category("Gatti", "<i class='fa-solid fa-cat'></i>"), $toyType);
@@ -74,6 +77,7 @@ $arrayProdotti = [
                             <p class="card-text">
                                 <?= $element->getPrice()?>€
                             </p>
+                            <?= $element->getStockStatus()?>
                             <a href="#" class="btn btn-primary">Buy</a>
                         </div>    
 
