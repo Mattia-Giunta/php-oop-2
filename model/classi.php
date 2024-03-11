@@ -49,6 +49,7 @@ class Product {
         $this->category = $_category;
         $this->type = $_type;
         $this->setStockQuantity();
+
     }
 
     public function getTitle() {

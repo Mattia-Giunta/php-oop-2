@@ -16,6 +16,8 @@ $dogFood = new Product("Croccantini per Cani", 10.99, "./img/food-dog.jpg", $dog
 $catToy = new Product("Giochino per Gatti", 5.99, "./img/cat-toy.jpg", $catCategory = new Category("Gatti", "<i class='fa-solid fa-cat'></i>"), $toyType);
 $catProduct = new Product("Cuccia per Gatti", 15.99, "./img/cat-home.jpg", $catCategory = new Category("Gatti", "<i class='fa-solid fa-cat'></i>"), $bedType);
 
+
+
 $arrayProdotti = [
     $dogFood,
     $catToy,
